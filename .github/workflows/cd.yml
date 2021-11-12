@@ -17,7 +17,7 @@ jobs:
         secrets: '${{ toJSON(secrets) }}'
         version: '${{ github.sha }}'
         chart: 'app'
-        namespace: production
+        namespace: example-helm
         release: production-myapp
         value-files: './config/production.yml'
       env:
