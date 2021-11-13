@@ -11,7 +11,7 @@ jobs:
     - name: 'Test'
       run: 'echo "ok"'
 
-    # - name: 'Build'
-    #   run: 'docker build -t myapp .'
+    - name: 'Build'
+      run: 'docker build -t myapp .'
     # - name: 'Push'
     #   run: 'docker push myapp'
