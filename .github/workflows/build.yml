@@ -14,5 +14,5 @@ jobs:
     - name: 'Build'
       run: 'docker build -t myapp .'
     - name: 'Push'
-      run: 'docker push ghcr.io/Evgenyguzman/my-app:latest'
+      run: 'docker push ghcr.io/evgenyguzman/my-app:latest'
     #   run: 'docker push myapp'
