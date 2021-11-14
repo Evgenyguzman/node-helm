@@ -11,9 +11,8 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
-# imagePullSecrets:
-#   - name: ${{ secrets.YANDEX_OAUTH_TOKEN }}
-imagePullSecrets: []
+imagePullSecrets:
+  - name: ${{ secrets.YANDEX_OAUTH_TOKEN }}
 nameOverride: ""
 fullnameOverride: ""
 
