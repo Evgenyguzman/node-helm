@@ -16,12 +16,12 @@ jobs:
       - name: "Test"
         run: 'echo "ok"'
 
-      - name: Log in to the Container registry
-        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Log in to the Container registry
+      #   uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      #   with:
+      #     registry: ${{ env.REGISTRY }}
+      #     username: ${{ github.actor }}
+      #     password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Log in to the Yandex Container registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
@@ -57,9 +57,3 @@ jobs:
           value-files: "./config/production.yml"
         env:
           KUBECONFIG_FILE: "${{ secrets.KUBECONFIG }}"
-#     - name: 'Build'
-#       run: 'docker build -t ghcr.io/evgenyguzman/my-app .'
-#     - name: 'Push'
-#       run: 'docker push ghcr.io/evgenyguzman/my-app:latest'
-#   run: 'docker push myapp'
-#
