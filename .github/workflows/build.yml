@@ -3,7 +3,8 @@ on: ["push"]
 
 env:
   REGISTRY: ghcr.io
-  YANDEX_REGISTRY: cr.yandex
+  # YANDEX_REGISTRY: cr.yandex/crpo7u2hcjd8o0fvme6l
+  YANDEX_REGISTRY: cr.yandex/crpo7u2hcjd8o0fvme6l
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
@@ -29,19 +30,20 @@ jobs:
           registry: ${{ env.YANDEX_REGISTRY }}
           username: oauth
           password: ${{ secrets.YANDEX_OAUTH_TOKEN }}
-
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-
+          images: |
+          ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          cr.yandex/crpo7u2hcjd8o0fvme6l/${{ env.IMAGE_NAME }}
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
+          # tags: [cr.yandex/crpo7u2hcjd8o0fvme6l/]
           labels: ${{ steps.meta.outputs.labels }}
       - name: "Deploy"
         # Parameters are pulled directly from the GitHub deployment event so the
