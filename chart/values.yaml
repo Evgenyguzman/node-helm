@@ -6,8 +6,7 @@ replicaCount: 1
 
 image:
   # repository: ghcr.io/evgenyguzman/node-helm:master
-  # repository: cr.yandex/crpo7u2hcjd8o0fvme6l/evgenyguzman/node-helm:master
-  repository: ${{ env.YANDEX_REGISTRY }}/${{ env.IMAGE_NAME }}:master
+  repository: cr.yandex/crpo7u2hcjd8o0fvme6l/evgenyguzman/node-helm:master
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
